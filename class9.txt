@@ -1,0 +1,41 @@
+1. Create a user image which is using ubuntu as a base image or layer and install apache2 on it and expose to port 80 UDP also specify the ENTRYPOINT for the image.
+
+ANSWER: ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## INSIDE Dockerfile !
+
+FROM ubuntu
+MAINTAINER me.animesh22@gmail.com
+WORKDIR /app
+
+RUN apt-get update -y
+RUN sudo apt-get install -y apache2
+RUN apt install –y apache2-utils
+RUN echo "Apache install"
+
+RUN ufw allow 'Apache'
+RUN systemctl status apache2
+COPY index.html ./
+EXPOSE 8080
+ENTRYPOINT ["Apache2 is running"]
+
+
+## Index.html file content
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+
+## Command to execute Dockerfile
+
+$sudo docker build -t web_server .
+
