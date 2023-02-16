@@ -1,0 +1,46 @@
+FROM python:latest
+
+LABEL Maintainer=”animesh”
+
+WORKDIR /usr/app/src
+COPY test.py ./
+
+CMD [ “python”, “./test.py”]
+
+
+-----------------------------------------------------------------------------------------
+FROM base
+
+MAINTAINER Moby Dock victor.coisne@docker.com
+
+ENTRYPOINT echo “Whale you be my container”
+---------------------------------------------------------------------------------------------
+
+FROM ubuntu:latest
+
+ENTRYPOINT echo “entry”
+
+---------------------------------------------------------------------------------------------
+FROM ubuntu:lastest
+RUN apt-get -y update
+RUN groupadd -r user && useradd -r -g user user
+User user
+
+---------------------------------------------------------------------------------------------
+
+base image ubuntu
+
+dir to var/www/html
+install nginx
+
+copy index.html to workdir
+
+
+---------------------------------------------------------------------------------------------
+Dockerfile content :
+
+FROM ubuntu
+WORKDIR /var/www/html
+RUN apt-get update -y
+CMD apt-get install nginx
+COPY index.html ./
