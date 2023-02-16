@@ -1,0 +1,34 @@
+---------------------------------------------------------------------------------------------------
+write a shell program to set automatic mail when free memory is less.
+THRESHOLD=500000
+while true; do
+  free_memory=$(free -k | grep Mem | awk '{print $4}')
+  if [ $free_memory -lt $THRESHOLD ]; then
+    echo "Low memory alert! Only $free_memory KB left." | mail -s "Low Memory Alert" user@example.com
+    break
+  fi
+  sleep 300
+done
+
+---------------------------------------------------------------------------------------------------
+write a command to show the content end's up with p.
+
+grep "P$" file.txt
+
+---------------------------------------------------------------------------------------------------
+write a command - welocme k19cc - range from A TO Z.
+
+for letter in {A..Z}; do
+    echo "welcome k19cc - $letter"
+done
+
+----------------------------------------------------------------------------------------------------
+- shell program to read command line argument a number and print your name according to that number.
+a=0
+read name
+while [ $a -lt $1 ]
+do
+echo $name
+a=`expr $a + 1`
+done
+
