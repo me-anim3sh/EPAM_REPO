@@ -1,0 +1,38 @@
+Q3. Write a scipt to Lock down the file or directory permission for folder1 files as per following requirement  [8]
+mkdir folder1
+touch f_{1..3}
+
+.file.sh folder1/
+
+
+Remove all permissions for groups and others.
+Provide directory name through command-line.
+After running script all files in the given directory, Only should have all the permissions.
+But remember dont add any permission to user only change to others and groups.
+
+Answer---------------------------------------------------------------------------------------------------
+#!/bin/bash
+
+# Check if directory name is provided through command-line
+if [ $# -eq 0 ]; then
+echo "ERROR: Please provide directory name as an argument."
+exit 1
+fi
+
+# Assign directory name to a variable
+dir_name=$1
+
+# Check if directory exists
+if [ ! -d "$dir_name" ]; then
+echo "ERROR: Directory does not exist."
+exit 1
+fi
+
+# Remove all permissions for groups and others
+chmod o-rwx,g-rwx $dir_name
+
+# Add all permissions for user
+chmod u+rwx $dir_name
+
+# Confirm permissions have been set
+ls -ld $dir_name
