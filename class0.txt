@@ -1,0 +1,42 @@
+copy the content of file a2.txt to a3.txt
+- cat a2.txt > a3.txt 
+
+d1 | d2 have contain ,  create file or crete then remove d2 
+- rm -r d2
+
+this commant show the first alphabate of sentence 
+- cut -c1-2 filename
+
+diff command is used to find the difference between two files.
+- diff test.txt test1.txt
+
+if u want print last line of pragraph 
+tail -2 filename
+
+match old lines with start with happy
+grep "^wordname" filename
+
+write a commond match all the line abc 
+grep "[a-c]" filename
+
+write a command that match all line the that not contain abc
+grep "[^x-z]" filename
+
+find argular exp. like email 
+grep "[a-zA-Z0-9.]\+@[a-zA-Z].[a-zA-Z]" k6.txt
+
+list all the running process with process id 
+ps -aux
+
+write a commant to show the ip address of etho 
+ip address
+
+if want to acces the file contian from url 
+curl -I -s https://opensource.com -o h7.txt
+cat h7.txt
+
+last to file of long listing
+ls -l | tail -4
+
+tr -- using to convert small aphabate to large 
+cat filename | tr a-z A-Z
